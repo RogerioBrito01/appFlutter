@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:hortifrut/app/data/services/cart/service.dart';
 import 'package:intl/intl.dart';
 
 import 'app/core/theme/app_theme.dart';
@@ -10,6 +11,7 @@ import 'app/routes/pages.dart';
 
 void main() {
   Get.put<Api>(Api());
+  Get.put<CartService>(CartService());
   Intl.defaultLocale = 'pt_BR';
   runApp(GetMaterialApp(
     debugShowCheckedModeBanner: false,

@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hortifrut/app/modules/product/widgets/quantity_and_weight/quantity_and_weight_widget.dart';
 import 'package:intl/intl.dart';
 import 'package:transparent_image/transparent_image.dart';
 
-import '../../widgets/quantity_and_weight_widget.dart';
 import 'controller.dart';
 
 class ProductPage extends GetView<ProductController> {
@@ -69,6 +69,12 @@ class ProductPage extends GetView<ProductController> {
                 ],
               ),
             ),
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 16.0),
+              child: ElevatedButton(
+                  onPressed: () => controller.addToCart(),
+                  child: const Text('Adicionar no carrinho')),
+            )
           ],
         ),
       ),

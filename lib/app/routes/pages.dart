@@ -1,6 +1,8 @@
 import 'package:get/get.dart';
 import 'package:hortifrut/app/modules/product/page.dart';
 
+import '../modules/cart/binding.dart';
+import '../modules/cart/page.dart';
 import '../modules/dashboard/binding.dart';
 import '../modules/dashboard/page.dart';
 import '../modules/product/binding.dart';
@@ -25,6 +27,11 @@ abstract class AppPages {
       name: Routes.product,
       page: () => ProductPage(),
       binding: ProductBinding(),
+    ),
+    GetPage(
+      name: Routes.cart,
+      page: () => CartPage(),
+      binding: CartBinding(),
     ),
   ];
 }
