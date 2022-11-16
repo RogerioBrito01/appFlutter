@@ -1,29 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:intl/intl.dart';
 
-class QuantityAndWeightWidget extends StatelessWidget {
-  //variavel comm a quantidade
-  bool isKg;
-//definindo como padrão isKG falso
-  QuantityAndWeightWidget({this.isKg = false});
-//chamando o widget pessonalisado de quantidade
-  @override
-  Widget build(BuildContext context) {
-    //definindo o tipo como QuantityAndWeightController
-    return GetBuilder<QuantityAndWeightController>(
-      //iniciandi o controller do valor
-      init: QuantityAndWeightController(isKg: isKg),
-      builder: (controller) => Column(
-        children: [
-          QuantityWidget(),
-        ],
-      ),
-    );
-  }
-}
+import 'quantity_and_weight_controller.dart';
 
-//criando o widiget personalinalizado
 class QuantityWidget extends StatelessWidget {
   //passando o valor do QuantityAndWeightController para a variavel controller
   var controller = Get.find<QuantityAndWeightController>();
@@ -49,9 +30,10 @@ class QuantityWidget extends StatelessWidget {
           ),
         ),
         Container(
-          width: 60.0,
+          width: isKg ? 96.0 : 48.0,
           padding: const EdgeInsets.all(8.0),
           child: Text(
+            //se for quantidades em kg aparece a kg se não fica limpo
             NumberFormat.decimalPattern().format(quantity) + (isKg ? 'kg' : ''),
             textAlign: TextAlign.center,
             style: const TextStyle(
@@ -70,21 +52,5 @@ class QuantityWidget extends StatelessWidget {
         )
       ],
     );
-  }
-}
-
-//criando o controller(QuantityAndWeightController)
-class QuantityAndWeightController extends GetxController {
-  //variavel para reseber a quantidade
-  bool isKg;
-//passando como parmentro obrigatorio
-  QuantityAndWeightController({required this.isKg});
-//iniciando a variaval com 1
-  num quantity = 1;
-//metodo que atualiza o valor atraves da funçao update
-  void changeQuantity(num value) {
-    quantity = value;
-
-    update();
   }
 }

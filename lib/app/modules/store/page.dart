@@ -75,9 +75,9 @@ class StorePage extends GetView<StoreController> {
                         for (var product in category.products)
                           ListTile(
                               title: Text(product.name),
-                              subtitle: Text(
-                                  NumberFormat.currency(locale: 'de_CH')
-                                      .format(product.price)),
+                              subtitle: Text(NumberFormat.simpleCurrency()
+                                      .format(product.price) +
+                                  (product.isKg ? '/kg' : '')),
                               leading: product.image.isNotEmpty
                                   ? SizedBox(
                                       width: 56.0,
