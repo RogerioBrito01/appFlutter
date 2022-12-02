@@ -1,4 +1,7 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:hortifrut/app/modules/checkbok/binding.dart';
+import 'package:hortifrut/app/modules/checkbok/checkout.dart';
 import 'package:hortifrut/app/modules/product/page.dart';
 
 import '../modules/cart/binding.dart';
@@ -33,5 +36,10 @@ abstract class AppPages {
       page: () => CartPage(),
       binding: CartBinding(),
     ),
+    GetPage(
+      name: Routes.checkout,
+      page: () => CheckoutPage(),
+      binding: CheckoutBinding(),
+    )
   ];
 }
