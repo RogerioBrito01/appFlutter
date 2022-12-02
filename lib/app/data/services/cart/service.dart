@@ -19,7 +19,7 @@ class CartService extends GetxService {
   }
 
   bool isANewStore(StoreModel newStore) {
-    return store.value!.id != newStore.id;
+    return store.value != null && store.value!.id != newStore.id;
   }
 
   void clearCart() {
@@ -29,6 +29,5 @@ class CartService extends GetxService {
 // função para iniciar um novo carrinho
   void newCart(StoreModel newStore) {
     store.value = newStore;
-    products.clear();
   }
 }

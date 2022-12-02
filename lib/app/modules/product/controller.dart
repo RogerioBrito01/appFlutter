@@ -25,12 +25,20 @@ class ProductController extends GetxController {
   }
 
 // busca o testo digitado pelo usuário no campo observação
-  void addToCart() {
-    observationController.text;
+  void addToCart() async {
     //Pegando o valor de quantidade pelo controllolador de quantidade
     var quantity = Get.find<QuantityAndWeightController>().quantity;
+
     if (_cartService.isANewStore(store.value!)) {
-      _cartService.clearCart();
+      //chamando o dialogo  e passando para a avariavel.
+      var startNewCart = await showDialogNewCart();
+
+//se a escolha for iniciar um novo carrinho limpa o atual
+      if (startNewCart == true) {
+        _cartService.clearCart();
+      } else {
+        return;
+      }
     }
 
     if (_cartService.products.isEmpty) {
@@ -49,5 +57,18 @@ class ProductController extends GetxController {
     ));
     //tempo de duaração da mesagem ao final volta para a tena anterior
     Future.delayed(const Duration(milliseconds: 300), () => Get.back());
+  }
+
+  Future<dynamic> showDialogNewCart() {
+    return Get.dialog(AlertDialog(
+      content: const Text(
+          'Seu carrinho atual será perdido se adicionar produtos de um novo estabelecimento.'),
+      actions: [
+        TextButton(onPressed: () => Get.back(), child: const Text('Voltar')),
+        TextButton(
+            onPressed: () => Get.back(result: true),
+            child: const Text('Continuar'))
+      ],
+    ));
   }
 }
