@@ -19,6 +19,7 @@ class Api extends GetConnect {
     super.onInit();
   }
 
+  ///metodo para trazer as informações do estabelecimentos
   Future<List<StoreModel>> getStores() async {
     var response = _errorHandler(await get('cidades/1/estabelecimentos'));
 

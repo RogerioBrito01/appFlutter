@@ -11,7 +11,7 @@ class StoreStatus extends StatelessWidget {
     return Container(
       padding: const EdgeInsets.all(4.0),
       decoration: BoxDecoration(
-        color: isOnline ? Colors.green : Colors.black45,
+        color: isOnline ? Color.fromRGBO(290, 250, 0, 13) : Colors.black45,
         border: Border.all(color: Colors.black12, width: 2.0),
         borderRadius: BorderRadius.circular(4.0),
       ),

@@ -24,6 +24,7 @@ class CartPage extends GetView<CartController> {
                     maxLength: 80,
                   ),
                 ),
+                //verifica se diferente de null
                 if (controller.store != null)
                   Align(
                     child: Padding(

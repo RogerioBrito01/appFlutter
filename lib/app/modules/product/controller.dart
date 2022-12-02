@@ -29,6 +29,14 @@ class ProductController extends GetxController {
     observationController.text;
     //Pegando o valor de quantidade pelo controllolador de quantidade
     var quantity = Get.find<QuantityAndWeightController>().quantity;
+    if (_cartService.isANewStore(store.value!)) {
+      _cartService.clearCart();
+    }
+
+    if (_cartService.products.isEmpty) {
+      _cartService.newCart(store.value!);
+    }
+
     //_cartService.newCart(store.value!);
     _cartService.AddProductToCart(CartProductModel(
         product: product.value!,
