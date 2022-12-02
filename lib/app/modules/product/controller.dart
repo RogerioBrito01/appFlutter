@@ -59,6 +59,7 @@ class ProductController extends GetxController {
     Future.delayed(const Duration(milliseconds: 300), () => Get.back());
   }
 
+//Mostrar caixa de diálogo Novo carrinho
   Future<dynamic> showDialogNewCart() {
     return Get.dialog(AlertDialog(
       content: const Text(

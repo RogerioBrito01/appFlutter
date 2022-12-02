@@ -22,7 +22,7 @@ class Api extends GetConnect {
   ///metodo para trazer as informações do estabelecimentos
   Future<List<StoreModel>> getStores() async {
     var response = _errorHandler(await get('cidades/1/estabelecimentos'));
-
+//fazer um form na lista de estabelecimento
     List<StoreModel> data = [];
     for (var store in response.body) {
       data.add(StoreModel.fromJson(store));

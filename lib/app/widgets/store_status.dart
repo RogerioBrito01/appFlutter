@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
+//botão para valisa se esta texto fechado o estabelecimento
 class StoreStatus extends StatelessWidget {
   bool isOnline;
 

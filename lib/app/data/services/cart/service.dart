@@ -7,6 +7,7 @@ class CartService extends GetxService {
   List<CartProductModel> products = RxList<CartProductModel>.empty();
 //variavem para reseber o estabelecimento.
   final store = Rxn<StoreModel>();
+  final observation = ''.obs;
 //função para add um produto no carinho
 //pega o valor da lista e add no cart de produto
   void AddProductToCart(CartProductModel cartProduct) {
@@ -18,10 +19,12 @@ class CartService extends GetxService {
     products.remove(cartProduct);
   }
 
+//é uma nova loja
   bool isANewStore(StoreModel newStore) {
     return store.value != null && store.value!.id != newStore.id;
   }
 
+//limpar carrinho
   void clearCart() {
     products.clear();
   }
